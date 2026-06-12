@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============================================================
+       SEITENTITEL & BESCHREIBUNG – hier deinen Namen eintragen
+       ============================================================ -->
+  <title>Philipp – Technik, Projekte & Reisen</title>
+  <meta name="description" content="Persönliches Portfolio: Tech-Projekte aus Elektronik, Maschinenbau und Machine Learning sowie Reisefotografie.">
+
+  <!-- Setzt das Farbschema (hell/dunkel) so früh wie möglich,
+       damit die Seite nicht kurz in der falschen Farbe aufblitzt. -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem("theme");
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.dataset.theme = saved || (prefersDark ? "dark" : "light");
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       KOPFZEILE / NAVIGATION
+       ============================================================ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo">Philipp<span class="logo-dot">.</span></a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
+        <a href="#hero">Über mich</a>
+        <a href="#reisen">Reisen</a>
+        <a href="#projekte">Projekte</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Dark-Mode-Umschalter (Logik in js/main.js) -->
+        <button id="theme-toggle" class="icon-btn" aria-label="Farbschema wechseln" title="Hell/Dunkel umschalten">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- Hamburger-Menü, nur am Handy sichtbar -->
+        <button id="nav-toggle" class="icon-btn nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="site-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         1) HERO / ÜBER MICH
+         Texte hier direkt im HTML anpassen.
+         ============================================================ -->
+    <section class="hero section" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-text reveal">
+          <p class="kicker">Techniker &amp; Ingenieur aus Österreich</p>
+          <h1>Hallo, ich bin <span class="accent">Philipp</span>.</h1>
+          <p class="hero-lead">
+            Platzhaltertext: Stell dich hier in 2–3 Sätzen vor. Zum Beispiel:
+            Ich tüftle am liebsten an Dingen, die sich bewegen – von
+            Elektronik über Maschinenbau bis Machine Learning. Wenn ich
+            nicht in der Werkstatt stehe, bin ich mit der Kamera unterwegs.
+          </p>
+          <div class="hero-cta">
+            <a href="#projekte" class="btn btn-primary">Projekte ansehen</a>
+            <a href="#reisen" class="btn btn-ghost">Reisefotos</a>
+          </div>
+          <ul class="hero-tags" aria-label="Interessen">
+            <li>Elektronik</li>
+            <li>Maschinenbau</li>
+            <li>Machine Learning</li>
+            <li>Schweißen</li>
+            <li>Fotografie</li>
+          </ul>
+        </div>
+
+        <!-- Foto-Platzhalter: images/portrait.svg durch echtes Foto ersetzen
+             (Dateiname hier im src anpassen, z. B. images/portrait.jpg) -->
+        <div class="hero-photo reveal">
+          <img src="images/portrait.svg" alt="Porträtfoto von Philipp" width="600" height="720">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         2) REISEN / FOTOGALERIE
+         Inhalte werden aus js/data/travel-data.js geladen –
+         hier musst du normalerweise nichts ändern.
+         ============================================================ -->
+    <section class="section" id="reisen">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Unterwegs</p>
+          <h2>Reisen</h2>
+          <p class="section-intro">
+            Platzhaltertext: Ein paar Eindrücke von meinen Reisen.
+            Klick auf ein Foto für die Großansicht.
+          </p>
+        </div>
+
+        <!-- Filter-Buttons werden automatisch aus den Ländern erzeugt -->
+        <div class="gallery-filters reveal" id="gallery-filters" role="group" aria-label="Galerie nach Reiseziel filtern"></div>
+
+        <!-- Masonry-Galerie, wird per JS befüllt -->
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3) TECH-PROJEKTE
+         Inhalte werden aus js/data/projects-data.js geladen –
+         hier musst du normalerweise nichts ändern.
+         ============================================================ -->
+    <section class="section" id="projekte">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Werkstatt &amp; Code</p>
+          <h2>Tech-Projekte</h2>
+          <p class="section-intro">
+            Platzhaltertext: Eine Auswahl meiner Bastelprojekte –
+            klick auf eine Karte für Details und mehr Fotos.
+          </p>
+        </div>
+
+        <!-- Projekt-Karten, werden per JS befüllt -->
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       4) FOOTER / KONTAKT – E-Mail und Links hier eintragen
+       ============================================================ -->
+  <footer class="site-footer" id="kontakt">
+    <div class="container footer-inner">
+      <h2>Kontakt</h2>
+      <p class="footer-text">
+        Platzhaltertext: Fragen zu einem Projekt oder einfach Lust zu plaudern?
+        Schreib mir gern.
+      </p>
+      <a class="footer-mail" href="mailto:deine@email.at">deine@email.at</a>
+      <nav class="footer-links" aria-label="Profile">
+        <a href="https://github.com/DEIN-NAME" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/DEIN-NAME" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/DEIN-NAME" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+      <p class="footer-copy">© <span id="year"></span> Philipp · Handgemacht ohne Framework</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       LIGHTBOX für die Fotogalerie (unsichtbar bis zum Klick)
+       ============================================================ -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Bild-Großansicht">
+    <button class="lightbox-btn lightbox-close" id="lightbox-close" aria-label="Schließen">&times;</button>
+    <button class="lightbox-btn lightbox-prev" id="lightbox-prev" aria-label="Vorheriges Bild">&#8249;</button>
+    <figure class="lightbox-figure">
+      <img id="lightbox-img" src="" alt="">
+      <figcaption>
+        <span id="lightbox-caption"></span>
+        <span class="lightbox-counter" id="lightbox-counter"></span>
+      </figcaption>
+    </figure>
+    <button class="lightbox-btn lightbox-next" id="lightbox-next" aria-label="Nächstes Bild">&#8250;</button>
+  </div>
+
+  <!-- ============================================================
+       MODAL für Projekt-Details (unsichtbar bis zum Klick)
+       ============================================================ -->
+  <div class="modal-backdrop" id="project-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <article class="modal">
+      <button class="icon-btn modal-close" id="modal-close" aria-label="Schließen">&times;</button>
+      <div class="modal-media">
+        <img id="modal-img" src="" alt="">
+        <div class="modal-thumbs" id="modal-thumbs"></div>
+      </div>
+      <div class="modal-body">
+        <h3 id="modal-title"></h3>
+        <p class="modal-subtitle" id="modal-subtitle"></p>
+        <ul class="tag-list" id="modal-tags"></ul>
+        <div class="modal-description" id="modal-description"></div>
+        <h4>Technische Daten</h4>
+        <ul class="modal-specs" id="modal-specs"></ul>
+      </div>
+    </article>
+  </div>
+
+  <!-- Reihenfolge wichtig: erst Daten, dann main.js (stellt Helfer
+       bereit), dann Galerie & Projekte -->
+  <script src="js/data/travel-data.js"></script>
+  <script src="js/data/projects-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>

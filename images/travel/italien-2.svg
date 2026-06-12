@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="950" viewBox="0 0 800 950">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fb923c"/>
+      <stop offset="1" stop-color="#7c2d12"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="950" fill="url(#g)"/>
+  <text x="50%" y="48%" font-family="system-ui, sans-serif" font-size="50" font-weight="600" fill="rgba(255,255,255,0.92)" text-anchor="middle">Amalfiküste</text>
+  <text x="50%" y="58%" font-family="system-ui, sans-serif" font-size="23" fill="rgba(255,255,255,0.6)" text-anchor="middle">Platzhalter – eigenes Foto einsetzen</text>
+</svg>
