@@ -55,10 +55,10 @@ const TRAVEL_PHOTOS = [
     alt: "Bunte Häuser am Hang von Positano an der Amalfiküste",
   },
   {
-    src: "images/travel/norwegen-1.svg",
-    title: "Reine, Lofoten",
+    src: "images/travel/norwegen_1.svg",
+    title: "Hadangervida, Lofoten",
     country: "Norwegen",
-    alt: "Fischerdorf Reine auf den Lofoten",
+    alt: "Hütte im Naturschutzgebiet",
   },
   {
     src: "images/travel/norwegen-2.svg",
